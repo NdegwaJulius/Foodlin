@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodlin/Cards/card1.dart';
 
 // 1
 class Home extends StatefulWidget {
@@ -12,7 +13,7 @@ class HomeState extends State<Home> {
   int _selectedIndex = 0;
   static List<Widget> pages = <Widget>[
     // TODO: Replace with Card1
-    Container(color: Colors.red),
+    const Card1(),
     // TODO: Replace with Card2
     Container(color: Colors.green),
     // TODO: Replace with Card3
@@ -33,6 +34,7 @@ class HomeState extends State<Home> {
           // 2
           style: Theme.of(context).textTheme.headline6,
         ),
+        centerTitle: true,
       ),
       // TODO: Show selected tab
       body: pages[_selectedIndex],
