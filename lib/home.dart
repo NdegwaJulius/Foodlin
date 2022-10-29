@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodlin/screens/explore_screen.dart';
 
+import 'screens/recipes_screen.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -16,6 +18,7 @@ class HomeState extends State<Home> {
     ExploreScreen(),
     Container(color: Colors.white),
     // TODO: Replace with RecipesScreen
+    RecipesScreen(),
     Container(color: Colors.green),
     Container(color: Colors.blue),
   ];
