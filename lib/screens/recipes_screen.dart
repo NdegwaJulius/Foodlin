@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../api/mock_fooderlich_service.dart';
+import '../components/components.dart';
 import '../models/models.dart';
 
 class RecipesScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class RecipesScreen extends StatelessWidget {
         // 4
         if (snapshot.connectionState == ConnectionState.done) {
           // TODO: Add RecipesGridView Here
+          return RecipesGridView(recipes: snapshot.data ?? []);
           // 5
           return const Center(child: Text('Recipes Screen'));
         } else {

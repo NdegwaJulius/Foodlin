@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodlin/screens/explore_screen.dart';
 
+import 'screens/explore_screen.dart';
 import 'screens/recipes_screen.dart';
 
 class Home extends StatefulWidget {
@@ -14,12 +14,8 @@ class HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    // TODO: Replace with ExploreScreen
     ExploreScreen(),
-    Container(color: Colors.white),
-    // TODO: Replace with RecipesScreen
     RecipesScreen(),
-    Container(color: Colors.green),
     Container(color: Colors.blue),
   ];
 
@@ -34,7 +30,7 @@ class HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Foodlin',
+          'Fooderlich',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
