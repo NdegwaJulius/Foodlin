@@ -1,57 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:foodlin/Cards/author_card.dart';
-import 'package:foodlin/fooderlich_theme.dart';
+
+import '../fooderlich_theme.dart';
+import '../models/models.dart';
+import 'author_card.dart';
 
 class Card2 extends StatelessWidget {
-  const Card2({super.key});
+  final ExploreRecipe recipe;
+
+  const Card2({
+    super.key,
+    required this.recipe,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      // 1
       child: Container(
         constraints: const BoxConstraints.expand(
           width: 350,
           height: 450,
         ),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/mag5.png'),
+            image: AssetImage(recipe.backgroundImage),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(10.0),
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         ),
-        // 2
         child: Column(
           children: [
-            const AuthorCard(
-              authorName: 'Julius Ndegwa',
-              title: 'Smoothies',
-              imageProvider: AssetImage('assets/jm.jpg'),
+            AuthorCard(
+              authorName: recipe.authorName,
+              title: recipe.role,
+              imageProvider: AssetImage(recipe.profileImage),
             ),
-            // TODO: Add Positioned text
             Expanded(
-              // 2
               child: Stack(
                 children: [
-                  // 3
                   Positioned(
                     bottom: 16,
                     right: 16,
                     child: Text(
-                      'Recipe',
+                      recipe.title,
                       style: FooderlichTheme.lightTextTheme.headline1,
                     ),
                   ),
-                  // 4
                   Positioned(
                     bottom: 70,
                     left: 16,
                     child: RotatedBox(
                       quarterTurns: 3,
                       child: Text(
-                        'Smoothies',
+                        recipe.subtitle,
                         style: FooderlichTheme.lightTextTheme.headline1,
                       ),
                     ),
