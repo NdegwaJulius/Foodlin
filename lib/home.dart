@@ -15,9 +15,9 @@ class HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    ExploreScreen(),
+    const ExploreScreen(),
     RecipesScreen(),
-    GroceryScreen(),
+    const GroceryScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,7 +31,7 @@ class HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Fooderlich',
+          'Foodlin',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
