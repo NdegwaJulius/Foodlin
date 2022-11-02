@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodlin/components/components.dart';
+import 'package:provider/provider.dart';
 
 import 'fooderlich_theme.dart';
 import 'home.dart';
@@ -16,7 +18,18 @@ class Fooderlich extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme,
       title: 'Foodlin',
-      home: const Home(),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => TabManager()),
+        ],
+        child: const Home(),
+      ),
     );
   }
 }
+/*
+1. You assign MultiProvider as a property of Home. This accepts a list of providers
+for Home’s descendant widgets to access.
+2. ChangeNotifierProvider creates an instance of TabManager, which listens to
+tab index changes and notifies its listeners.
+*/
