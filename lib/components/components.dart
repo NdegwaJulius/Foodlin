@@ -1,3 +1,5 @@
+export 'package:foodlin/models/grocery_item.dart';
+
 export 'author_card.dart';
 export 'card1.dart';
 export 'card2.dart';
