@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodlin/components/components.dart';
+import 'package:foodlin/screens/grocery_list_screen.dart';
 import 'package:provider/provider.dart';
 
 class GroceryScreen extends StatelessWidget {
@@ -51,7 +52,7 @@ class GroceryScreen extends StatelessWidget {
         // 3
         if (manager.groceryItems.isNotEmpty) {
           // TODO: Add GroceryListScreen
-          return Container();
+          return GroceryListScreen(manager: manager);
         } else {
           // 4
           return const EmptyGroceryScreen();

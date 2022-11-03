@@ -6,6 +6,7 @@ export 'package:foodlin/models/models.dart';
 export 'package:foodlin/models/tab_manager.dart';
 export 'package:foodlin/screens/empty_grocery_screen.dart';
 export 'package:foodlin/screens/grocery_item_screen.dart';
+export 'package:foodlin/screens/grocery_item_screen.dart';
 
 export 'author_card.dart';
 export 'card1.dart';
