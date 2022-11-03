@@ -30,12 +30,16 @@ class HomeState extends State<Home> {
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
-        body: pages[_selectedIndex],
+        body: IndexedStack(
+          children: pages,
+          index: tabManager.selectedTab,
+        ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor:
               Theme.of(context).textSelectionTheme.selectionColor,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
+          onTap: (index) {
+            tabManager.goToTab(index);
+          },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.explore),
