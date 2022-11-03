@@ -1,3 +1,4 @@
+export 'package:foodlin/components/grocery_tile.dart';
 export 'package:foodlin/models/grocery_item.dart';
 export 'package:foodlin/models/grocery_manager.dart';
 export 'package:foodlin/models/grocery_manager.dart';

@@ -111,6 +111,22 @@ class GroceryItemScreenState extends State<GroceryItemScreen> {
             const SizedBox(height: 10.0),
             buildQuantityField(),
             // TODO: Add Grocery Tile
+            GroceryTile(
+              item: GroceryItem(
+                id: 'previewMode',
+                name: _name,
+                importance: _importance,
+                color: _currentColor,
+                quantity: _currentSliderValue,
+                date: DateTime(
+                  _dueDate.year,
+                  _dueDate.month,
+                  _dueDate.day,
+                  _timeOfDay.hour,
+                  _timeOfDay.minute,
+                ),
+              ),
+            ),
           ],
         ),
       ),
