@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
@@ -103,6 +104,8 @@ class GroceryItemScreenState extends State<GroceryItemScreen> {
             // TODO: Add time picker
             buildTimeField(context),
             // TODO: Add color picker
+            const SizedBox(height: 10.0),
+            buildColorPicker(context),
             // TODO: Add slider
             // TODO: Add Grocery Tile
           ],
@@ -263,42 +266,98 @@ class GroceryItemScreenState extends State<GroceryItemScreen> {
       ],
     );
   }
+
 // TODO: Add buildTimeField()
   Widget buildTimeField(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-      Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-      Text(
-      'Time of Day',
-      style: GoogleFonts.lato(fontSize: 28.0),
-    ),
-    TextButton(
-    child: const Text('Select'),
-    onPressed: () async {
-    // 1
-    final timeOfDay = await showTimePicker(
-    // 2
-    initialTime: TimeOfDay.now(),
-    context: context,
-    );
-    // 3
-    setState(() {
-    if (timeOfDay != null) {
-      _timeOfDay = timeOfDay;
-    }
-    });
-    },
-    ),
-      ],
-      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Time of Day',
+              style: GoogleFonts.lato(fontSize: 28.0),
+            ),
+            TextButton(
+              child: const Text('Select'),
+              onPressed: () async {
+                // 1
+                final timeOfDay = await showTimePicker(
+                  // 2
+                  initialTime: TimeOfDay.now(),
+                  context: context,
+                );
+                // 3
+                setState(() {
+                  if (timeOfDay != null) {
+                    _timeOfDay = timeOfDay;
+                  }
+                });
+              },
+            ),
+          ],
+        ),
         Text(_timeOfDay.format(context)),
       ],
     );
   }
-    }
+
 // TODO: Add buildColorPicker()
+  Widget buildColorPicker(BuildContext context) {
+    // 1
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        // 2
+        Row(
+          children: [
+            Container(
+              height: 50.0,
+              width: 10.0,
+              color: _currentColor,
+            ),
+            const SizedBox(width: 8.0),
+            Text(
+              'Color',
+              style: GoogleFonts.lato(fontSize: 28.0),
+            ),
+          ],
+        ),
+        // 3
+        TextButton(
+          child: const Text('Select'),
+          onPressed: () {
+            // 4
+            showDialog(
+              context: context,
+              builder: (context) {
+                // 5
+                return AlertDialog(
+                  content: BlockPicker(
+                    pickerColor: Colors.white,
+                    // 6
+                    onColorChanged: (color) {
+                      setState(() => _currentColor = color);
+                    },
+                  ),
+                  actions: [
+                    // 7
+                    TextButton(
+                      child: const Text('Save'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        ),
+      ],
+    );
+  }
+
 // TODO: Add buildQuantityField()
 }
