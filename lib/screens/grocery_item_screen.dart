@@ -96,6 +96,7 @@ class GroceryItemScreenState extends State<GroceryItemScreen> {
             // TODO: Add name TextField
             buildNameField(),
             // TODO: Add Importance selection
+            buildImportanceField(),
             // TODO: Add date picker
             // TODO: Add time picker
             // TODO: Add color picker
@@ -144,6 +145,7 @@ class GroceryItemScreenState extends State<GroceryItemScreen> {
       ],
     );
   }
+
   /*
   Here’s what’s happening above:
 1. Creates a Column to lay elements out vertically.
@@ -157,6 +159,62 @@ class GroceryItemScreenState extends State<GroceryItemScreen> {
 9. Customizes the text field’s border color
   */
 // TODO: Add buildImportanceField()
+  Widget buildImportanceField() {
+    // 1
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // 2
+        Text(
+          'Importance',
+          style: GoogleFonts.lato(fontSize: 28.0),
+        ),
+        // 3
+        Wrap(
+          spacing: 10.0,
+          children: [
+            // 4
+            ChoiceChip(
+              // 5
+              selectedColor: Colors.black,
+              // 6
+              selected: _importance == Importance.low,
+              label: const Text(
+                'low',
+                style: TextStyle(color: Colors.white),
+              ),
+              // 7
+              onSelected: (selected) {
+                setState(() => _importance = Importance.low);
+              },
+            ),
+            ChoiceChip(
+              selectedColor: Colors.black,
+              selected: _importance == Importance.medium,
+              label: const Text(
+                'medium',
+                style: TextStyle(color: Colors.white),
+              ),
+              onSelected: (selected) {
+                setState(() => _importance = Importance.medium);
+              },
+            ),
+            ChoiceChip(
+              selectedColor: Colors.black,
+              selected: _importance == Importance.high,
+              label: const Text(
+                'high',
+                style: TextStyle(color: Colors.white),
+              ),
+              onSelected: (selected) {
+                setState(() => _importance = Importance.high);
+              },
+            ),
+          ],
+        )
+      ],
+    );
+  }
 // TODO: ADD buildDateField()
 // TODO: Add buildTimeField()
 // TODO: Add buildColorPicker()
