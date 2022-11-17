@@ -31,8 +31,8 @@ class HomeState extends State<Home> {
           ),
         ),
         body: IndexedStack(
-          children: pages,
           index: tabManager.selectedTab,
+          children: pages,
         ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor:
